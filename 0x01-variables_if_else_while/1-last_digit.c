@@ -18,15 +18,15 @@ int main(void)
 
 	if (lastdgt > 5)
 	{
-		printf("last digit of %d is %d and is greater than 5\n", n, lastdgt);
+		printf("Last digit of %d is %d and is greater than 5\n", n, lastdgt);
 	}
 	else if (lastdgt == 0)
 	{
-		printf("last digit of %d is %d and is zero 0\n", n, lastdgt);
+		printf("Last digit of %d is %d and is zero 0\n", n, lastdgt);
 	}
 	else
 	{
-		printf("last digit of %d is %d and is less than 6 and not 0\n", n, lastdgt);
+		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, lastdgt);
 	}
 	return (0);
 }
