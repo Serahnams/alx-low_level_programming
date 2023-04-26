@@ -2,30 +2,25 @@
 
 
 /**
- * main - Prints first 50 Fibonacci numbers, starting with 1 and 2,
- *        separated by a comma followed by a space.
+ * main - Lists all the natural numbers below 1024 (excluded)
+ *        that are multiples of 3 or 5.
  *
  * Return: Always 0.
  */
 int main(void)
 {
-	int i = 0;
-	long j = 1, k = 2;
+	int i, sum = 0;
 
-	while (i < 50)
+
+	for (i = 0; i < 1024; i++)
 	{
-	if (i == 0)
-	printf("%ld", j);
-	else if (i == 1)
-	printf(", %ld", k);
-	else
-	{
-	k += j;
-	j = k - j;
-	printf(", %ld", k);
+		if ((i % 3) == 0 || (i % 5) == 0)
+			sum += i;
 	}
-	++i;
-	}
-	printf("\n");
+
+
+	printf("%d\n", sum);
+
+
 	return (0);
 }
