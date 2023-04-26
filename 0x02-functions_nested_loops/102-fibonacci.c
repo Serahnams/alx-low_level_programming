@@ -8,29 +8,21 @@
  */
 int main(void)
 {
-	int i;
-	unsigned long int j, k, next, sum;
+	long int n1, n2, f, fb;
 
-
-	j = 1;
-	k = 2;
-	sum = 0;
-
-
-	for (i = 1; i <= 33; ++i)
+	n1 = 1;
+	n2 = 2;
+	f = fb = 0;
+	while (f <= 4000000)
 	{
-		if (j < 4000000 && (j % 2) == 0)
+		f = n1 + n2;
+		n1 = n2;
+		n2 = f;
+		if ((n1 % 2) == 0)
 		{
-			sum = sum + j;
+			fb += n1;
 		}
-		next = j + k;
-		j = k;
-		k = next;
 	}
-
-
-	printf("%lu\n", sum);
-
-
+	printf("%ld\n", fb);
 	return (0);
 }
