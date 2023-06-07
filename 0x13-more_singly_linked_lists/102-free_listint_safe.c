@@ -2,14 +2,14 @@
 
 /**
  * free_listint_safe - frees a linked list
- * @h: pointer to the first node in the linked list
+ * @h: pointer
  *
- * Return: number of elements in the freed list
+ * Return: size of the list that was free’d
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t count = 0;
-	listint_t *current = *h;
+	size_t countNodes = 0;
+	listint_t *now = *h;
 	listint_t *next = NULL;
 
 	if (h == NULL || *h == NULL)
@@ -17,20 +17,20 @@ size_t free_listint_safe(listint_t **h)
 		return (0);
 	}
 
-	while (current != NULL)
+	while (now != NULL)
 	{
-		next = current->next;
-		free(current);
-		count++;
+		next = now->next;
+		free(now);
+		countNodes++;
 
-		if (next >= current)
+		if (next >= now)
 		{
 			break;
 		}
 
-		current = next;
+		now = next;
 	}
 
 	*h = NULL;
-	return (count);
+	return (countNodes);
 }
