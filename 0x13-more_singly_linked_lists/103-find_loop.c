@@ -9,17 +9,16 @@
 
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *snail = head;
-	listint_t *quick = head;
+	listint_t *snail, *quick;
 
-	if (!head)
+	if (head == NULL || head->next == NULL)
 		return (NULL);
 
-	while (snail && quick && quick->next)
-	{
-		snail = snail->next;
-		quick = quick->next->next;
+	snail = head->next;
+	quick = head->next->next;
 
+	while (quick && quick->next)
+	{
 		if (snail == quick)
 		{
 			snail = head;
@@ -28,9 +27,12 @@ listint_t *find_listint_loop(listint_t *head)
 				snail = snail->next;
 				quick = quick->next;
 			}
+
+			return (snail);
 		}
 
-		return (quick);
+		snail = snail->next;
+		quick = quick->next->next;
 	}
 
 	return (NULL);
